@@ -1,50 +1,89 @@
+/* Navigation Bar */
+nav {
+    background-color: #1e1e1e;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff9800;
+}
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #fdfdfd;
-    color: #333;
+    font-family: 'Georgia', serif;
+    background-color: #fdf6ec;
+    color: #3e2f2f;
+    max-width: 900px;
     margin: 0 auto;
-    max-width: 800px;
     padding: 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/aztec-pattern.png');
 }
 
 header {
     text-align: center;
+    margin-bottom: 30px;
+    background-color: #8c3a23;
     padding: 20px;
+    border-radius: 10px;
+    color: #fffbe6;
 }
 
 h1 {
-    color: #2c3e50;
     font-size: 2.5em;
+    color: #ffd700;
 }
 
 h2 {
-    color: #1abc9c;
-    border-bottom: 2px solid #1abc9c;
+    color: #c1440e;
+    border-bottom: 2px solid #c1440e;
     padding-bottom: 5px;
+    margin-top: 40px;
 }
 
 a {
-    color: #2980b9;
+    color: #d17c1b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 footer {
     text-align: center;
-    margin-top: 40px;
-    color: #777;
+    color: #6c4c2d;
+    margin-top: 50px;
 }
 
 .progress-container {
-    background: #eee;
-    border-radius: 10px;
+    width: 100%;
+    background-color: #d9cfc1;
+    border-radius: 5px;
     margin: 10px 0;
 }
 
 .progress-bar {
     height: 20px;
-    background: #1abc9c;
-    color: #fff;
+    background-color: #8c3a23;
+    border-radius: 5px;
     text-align: center;
-    border-radius: 10px;
-    line-height: 20px;
+    color: #fff;
     font-size: 12px;
+    line-height: 20px;
 }
