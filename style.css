@@ -35,11 +35,11 @@ body {
     background-color: #121212;
     color: #eee;
     font-family: 'Georgia', serif;
-    line-height: 1.6;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-image: url('https://www.transparenttextures.com/patterns/aztec-pattern.png');
+    background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -104,5 +104,37 @@ footer {
     background: #f1c40f;
     z-index: 9999;
     transition: width 0.25s ease-out;
+}
+.poem-gallery {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: rgba(30, 30, 30, 0.85); /* semi-dark background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.poem-gallery h2 {
+    text-align: center;
+    font-size: 2.2em;
+    color: #ffd700;
+    margin-bottom: 40px;
+}
+
+.poem-gallery article {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.poem-gallery h3 {
+    color: #f9d342;
+    margin-bottom: 15px;
+}
+
+.poem-gallery img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
