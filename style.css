@@ -94,3 +94,15 @@ footer {
     font-size: 12px;
     line-height: 20px;
 }
+/* Scroll Progress Bar */
+#scrollBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background: #f1c40f;
+    z-index: 9999;
+    transition: width 0.25s ease-out;
+}
+

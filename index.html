@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="scrollBar"></div>
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -28,18 +29,32 @@
     </section>
 
     <section id="skills">
-    <h2>My Skills</h2>
-    <ul>
-        <li>HTML & CSS</li>
-        <li>JavaScript (Learning)</li>
-        <li>Python</li>
-        <li>Java</li>
-        <li>Git & GitHub</li>
-        <li>Cybersecurity Enthusiast</li>
-    </ul>
-</section>
-
+        <h2>Skills & Interests</h2>
+        <ul>
+            <li>Java</li>
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>Cybersecurity Enthusiast</li>
+            <li>Poetry & Creative Writing</li>
+        </ul>
+    </section>
 
     <section id="projects">
         <h2>Projects</h2>
-        <p>Coming soon! Follow my <a href="https://github.com/P-iotic" target="_blank">GitHub</a_
+        <p>Coming soon! Follow my <a href="https://github.com/P-iotic" target="_blank">GitHub</a>
+    </section>
+
+     <footer>
+        <p>&copy; 2025 P-iotic. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollBar").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+</html>
