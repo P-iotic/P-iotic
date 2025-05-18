@@ -2,47 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P-iotic | Poetry</title>
-    <link rel="stylesheet" href="../style.css"> <!-- Updated path -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="poetry.html">Poetry</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="mailto:youremail@example.com">Contact</a></li>
+            <li><button onclick="toggleTheme()">Toggle Theme</button></li>
         </ul>
     </nav>
 
-    <header>
-        <h1>My Poetry</h1>
-        <p>Shadows colide here</p>
-    </header>
-
-    <div class="poem-gallery"></div>
+    <div class="poem-gallery">
         <section>
-            
-             <h2>Selected Poems</h2>
-
+            <h2>Selected Poems</h2>
             <article>
-                <h3>Poem 1 (SVG Format)</h3>
-                <img src="poetry/caged.svg" alt="Poem 1" style="width:100%; max-width:600px;">
+                <h3>Caged (SVG)</h3>
+                <img src="poetry/caged.svg" alt="Caged Poem, a visual poem about confinement and freedom" class="poem-image" tabindex="0">
+                <p class="poem-description">A visual poem exploring themes of confinement and the yearning for freedom.</p>
+                <a href="poetry/caged.svg" download class="download-btn" aria-label="Download Caged Poem">Download</a>
             </article>
-
             <article>
-                <h3>Poem 2 (PNG-Format)</h3>
-                <img src="poetry/1st quarter.png" alt="Poem 2" style="width:100%; max-width:600px;">
+                <h3>First Quarter (PNG)</h3>
+                <img src="poetry/1st quarter.png" alt="First Quarter Poem, a visual poem about new beginnings" class="poem-image" tabindex="0">
+                <p class="poem-description">Inspired by the lunar cycle, this poem reflects on new beginnings and growth.</p>
+                <a href="poetry/1st quarter.png" download class="download-btn" aria-label="Download First Quarter Poem">Download</a>
             </article>
-
             <article>
-                <h3>Poem 3 (SVG-Format)</h3>
-                <img src="poetry/Hear our Cry.svg" alt="Poem 2" style="width:100%; max-width:600px;">
+                <h3>Hear Our Cry (SVG)</h3>
+                <img src="poetry/Hear our Cry.svg" alt="Hear Our Cry Poem, a visual poem about collective struggle" class="poem-image" tabindex="0">
+                <p class="poem-description">A powerful visual poem addressing collective struggle and resilience.</p>
+                <a href="poetry/Hear our Cry.svg" download class="download-btn" aria-label="Download Hear Our Cry Poem">Download</a>
             </article>
         </section>
     </div>
 
-
     <footer>
-        <p>&copy; 2025 P-iotic</p>
+        <p>© 2025 P-iotic. All rights reserved.</p>
     </footer>
+
+    <script src="poetry.js"></script>
 </body>
 </html>

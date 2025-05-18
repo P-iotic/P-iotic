@@ -1,21 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const skills = [
-        { name: "HTML/CSS", level: 85 },
-        { name: "JavaScript", level: 65 },
-        { name: "Python", level: 70 },
-        { name: "Git & GitHub", level: 80 },
-    ];
+    // Scroll Bar Functionality
+    window.onscroll = function () {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('scrollBar').style.width = scrolled + '%';
+    };
 
-    const section = document.getElementById('skills');
+    // Theme Toggle with Local Storage
+    const toggleTheme = () => {
+        document.body.classList.toggle('light-mode');
+        const isLightMode = document.body.classList.contains('light-mode');
+        localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+    };
 
-    skills.forEach(skill => {
-        const div = document.createElement('div');
-        div.innerHTML = `
-            <p>${skill.name}</p>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: ${skill.level}%">${skill.level}%</div>
-            </div>
-        `;
-        section.appendChild(div);
-    });
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+    }
+
+    // Expose toggleTheme to global scope for button
+    window.toggleTheme = toggleTheme;
 });

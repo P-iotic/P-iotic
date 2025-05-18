@@ -10,11 +10,12 @@
     <div id="scrollBar"></div>
     <nav class="navbar">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="poetry.html">Poetry</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="mailto:youremail@example.com">Contact</a></li>
+            <li><a href="index.html" aria-label="Go to Home">Home</a></li>
+            <li><a href="poetry.html" aria-label="Go to Poetry">Poetry</a></li>
+            <li><a href="#projects" aria-label="Go to Projects">Projects</a></li>
+            <li><a href="#about" aria-label="Go to About">About</a></li>
+            <li><a href="mailto:youractualemail@example.com" aria-label="Contact via Email">Contact</a></li>
+            <li><button onclick="toggleTheme()" aria-label="Toggle Light/Dark Theme">Toggle Theme</button></li>
         </ul>
     </nav>
 
@@ -41,20 +42,13 @@
 
     <section id="projects">
         <h2>Projects</h2>
-        <p>Coming soon! Follow my <a href="https://github.com/P-iotic" target="_blank">GitHub</a>
+        <p>Coming soon! Follow my <a href="https://github.com/P-iotic" target="_blank" aria-label="Visit my GitHub">GitHub</a>.</p>
     </section>
 
-     <footer>
-        <p>&copy; 2025 P-iotic. All rights reserved.</p>
+    <footer>
+        <p>© 2025 P-iotic. All rights reserved.</p>
     </footer>
 
-    <script>
-        window.onscroll = function() {
-            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("scrollBar").style.width = scrolled + "%";
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
