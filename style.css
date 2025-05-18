@@ -1,8 +1,8 @@
 /* Global Styles */
 body {
     background-color: #121212;
-    color: #f0e9e0;
-    font-family: 'Georgia', serif;
+    color: #d1fae5;
+    font-family: 'Source Code Pro', monospace;
     margin: 0;
     padding: 0;
     background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
@@ -13,7 +13,7 @@ body {
 
 /* Navigation Bar */
 .navbar {
-    background-color: #2c2c2c;
+    background-color: #1f2937;
     padding: 15px 0;
     text-align: center;
 }
@@ -27,7 +27,7 @@ body {
     margin: 0 20px;
 }
 .navbar a, .navbar button {
-    color: #ffd700;
+    color: #10b981;
     text-decoration: none;
     font-size: 1.2em;
     background: none;
@@ -35,69 +35,7 @@ body {
     cursor: pointer;
 }
 .navbar a:hover, .navbar button:hover {
-    color: #f9d342;
-}
-
-/* Header */
-header {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: rgba(30, 30, 30, 0.9);
-    margin: 20px auto;
-    max-width: 900px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-}
-header h1 {
-    color: #ffd700;
-    font-size: 3em;
-    margin: 0;
-}
-header p {
-    color: #f0e9e0;
-    font-size: 1.2em;
-}
-
-/* Sections */
-section {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: rgba(30, 30, 30, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-}
-section h2 {
-    color: #ffd700;
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-}
-section p, section ul {
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-section ul {
-    list-style: none;
-    padding: 0;
-}
-section ul li {
-    margin: 10px 0;
-    padding-left: 20px;
-    position: relative;
-}
-section ul li::before {
-    content: "•";
-    color: #f9d342;
-    position: absolute;
-    left: 0;
-}
-section a {
-    color: #f9d342;
-    text-decoration: none;
-}
-section a:hover {
-    text-decoration: underline;
+    color: #34d399;
 }
 
 /* Poem Gallery */
@@ -105,14 +43,14 @@ section a:hover {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
-    background-color: rgba(30, 30, 30, 0.9);
+    background-color: rgba(31, 41, 55, 0.9);
     border-radius: 15px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
 }
 .poem-gallery h2 {
     text-align: center;
     font-size: 2.5em;
-    color: #ffd700;
+    color: #10b981;
     margin-bottom: 30px;
     text-transform: uppercase;
 }
@@ -121,7 +59,7 @@ section a:hover {
     text-align: center;
 }
 .poem-gallery h3 {
-    color: #f9d342;
+    color: #34d399;
     font-size: 1.8em;
     margin-bottom: 15px;
 }
@@ -138,20 +76,17 @@ section a:hover {
 }
 .poem-description {
     font-size: 1em;
-    color: #f0e9e0;
+    color: #d1fae5;
     margin: 10px 0;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
-body.light-mode .poem-description {
-    color: #121212;
-}
 .download-btn {
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: #f9d342;
+    background-color: #10b981;
     color: #121212;
     text-decoration: none;
     border-radius: 5px;
@@ -159,19 +94,7 @@ body.light-mode .poem-description {
     transition: background-color 0.3s ease;
 }
 .download-btn:hover {
-    background-color: #ffd700;
-}
-
-/* Scroll Bar */
-#scrollBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 5px;
-    background: #f9d342;
-    width: 0%;
-    z-index: 9999;
-    transition: width 0.25s ease-out;
+    background-color: #34d399;
 }
 
 /* Lightbox */
@@ -195,50 +118,54 @@ body.light-mode .poem-description {
     max-height: 90%;
     border-radius: 10px;
 }
+#lightbox img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #2c2c2c;
-    color: #f0e9e0;
+    background-color: #1f2937;
+    color: #d1fae5;
     margin-top: 40px;
 }
 
 /* Light Mode */
 body.light-mode {
-    background-color: #f0e9e0;
-    color: #121212;
+    background-color: #f0f7ff;
+    color: #1f2937;
     background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
 }
 body.light-mode .navbar {
     background-color: #ffffff;
 }
 body.light-mode .navbar a, body.light-mode .navbar button {
-    color: #2c2c2c;
+    color: #1f2937;
 }
 body.light-mode .navbar a:hover, body.light-mode .navbar button:hover {
-    color: #f9d342;
+    color: #10b981;
 }
-body.light-mode .poem-gallery, body.light-mode section, body.light-mode header {
+body.light-mode .poem-gallery {
     background-color: rgba(255, 255, 255, 0.9);
 }
-body.light-mode .poem-gallery h2, body.light-mode h1, body.light-mode h2, body.light-mode section a {
-    color: #2c2c2c;
+body.light-mode .poem-gallery h2, body.light-mode h3 {
+    color: #1f2937;
+}
+body.light-mode .poem-description {
+    color: #1f2937;
 }
 body.light-mode .download-btn {
-    background-color: #2c2c2c;
-    color: #f0e9e0;
+    background-color: #1f2937;
+    color: #f0f7ff;
 }
 body.light-mode .download-btn:hover {
-    background-color: #4a4a4a;
+    background-color: #4b5563;
 }
 body.light-mode footer {
     background-color: #ffffff;
-    color: #121212;
-}
-body.light-mode section ul li::before {
-    color: #2c2c2c;
+    color: #1f2937;
 }
 
 /* Responsive Design */
@@ -249,17 +176,11 @@ body.light-mode section ul li::before {
     .navbar a, .navbar button {
         font-size: 1em;
     }
-    header {
-        padding: 30px 15px;
-    }
-    header h1 {
-        font-size: 2.5em;
-    }
-    section, .poem-gallery {
+    .poem-gallery {
         margin: 15px;
         padding: 15px;
     }
-    .poem-gallery h2, section h2 {
+    .poem-gallery h2 {
         font-size: 1.8em;
     }
     .poem-image {
