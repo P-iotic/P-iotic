@@ -1,7 +1,3 @@
----
-layout: default
-permalink: /
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +5,64 @@ permalink: /
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>P-iotic | IT Student Portfolio</title>
   <link rel="stylesheet" href="/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
   <canvas id="matrix"></canvas>
   <div id="particles-js"></div>
-  <div id="root"></div>
+  <div id="scrollBar"></div>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/poetry.html" class="nav-link">Poetry</a></li>
+      <li><a href="/velaphi.html" class="nav-link">Velaphi</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><button onclick="toggleTheme()" class="nav-button">Toggle Theme</button></li>
+    </ul>
+  </nav>
+  <header id="home" class="section">
+    <h1 class="section-title animate-pulse">P-iotic</h1>
+    <p class="section-subtitle">Final-Year BSc IT Student | Cybersecurity Enthusiast | Secure Software Developer</p>
+  </header>
+  <section id="about" class="section">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-text">
+      I’m a final-year BSc IT student at North-West University, specializing in secure software development and cybersecurity. Proficient in <span class="text-green-500">Java, Python, C++, C#</span>, and <span class="text-green-500">data structures</span>, I build efficient, secure applications. My cybersecurity passion drives me to explore <span class="text-green-500">penetration testing</span> and <span class="text-green-500">cryptography</span>. Poetry is my creative outlet, reflecting my ability to blend technical precision with artistry. Check out my projects and <a href="/poetry.html" class="text-green-500 hover:underline">poetry</a>!
+    </p>
+  </section>
+  <section id="skills" class="section">
+    <h2 class="section-title">Skills & Expertise</h2>
+    <div id="skills-grid" class="grid"></div>
+  </section>
+  <section id="projects" class="section">
+    <h2 class="section-title">Projects</h2>
+    <div id="projects-grid" class="grid"></div>
+    <p class="section-text text-center">More projects in progress! Follow my <a href="https://github.com/P-iotic" target="_blank" class="text-green-500 hover:underline">GitHub</a>.</p>
+  </section>
+  <section id="contact" class="section">
+    <h2 class="section-title">Get in Touch</h2>
+    <form action="https://formspree.io/f/your-formspree-id" method="POST" class="form">
+      <div>
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" required class="form-input" />
+      </div>
+      <div>
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" required class="form-input" />
+      </div>
+      <div>
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" rows="4" required class="form-input"></textarea>
+      </div>
+      <button type="submit" class="form-button">Send Message</button>
+    </form>
+  </section>
+  <footer class="footer">
+    <p>© 2025 P-iotic. All rights reserved.</p>
+  </footer>
   <script src="/theme.js"></script>
-  <script src="/app.js" type="text/babel"></script>
+  <script src="/index.js"></script>
 </body>
 </html>
