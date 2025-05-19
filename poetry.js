@@ -53,25 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Theme Toggle with Local Storage
-    const toggleTheme = () => {
-        document.body.classList.toggle('light-mode');
-        const isLightMode = document.body.classList.contains('light-mode');
-        localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-    };
-
-    // Apply saved theme on load
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
-    }
-
-    window.toggleTheme = toggleTheme;
-
     // Error handling for missing images
     images.forEach(image => {
         image.addEventListener('error', () => {
-            image.src = 'poetry/fallback.png';
+            image.src = '/poetry/fallback.png';
             image.alt = 'Failed to load poem image';
         });
     });

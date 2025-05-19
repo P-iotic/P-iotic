@@ -6,6 +6,11 @@ const App = () => {
     useEffect(() => {
         localStorage.setItem('theme', theme);
         document.body.className = theme === 'dark' ? 'bg-gray-900 text-gray-100 font-mono' : 'bg-gray-100 text-gray-900 font-mono';
+        if (theme === 'light') {
+            document.body.classList.add('light-mode');
+        } else {
+            document.body.classList.remove('light-mode');
+        }
     }, [theme]);
 
     const toggleTheme = () => {
@@ -57,76 +62,85 @@ const App = () => {
     return (
         <div className="min-h-screen">
             <div id="scrollBar" className="fixed top-0 left-0 h-1 bg-green-500 transition-all duration-300 z-50"></div>
-            <nav className="bg-gray-800 p-4 sticky top-0 z-40 shadow-lg">
-                <ul className="flex justify-center space-x-6">
-                    <li><a href="#home" className="hover:text-green-500 transition-colors" aria-label="Go to Home">Home</a></li>
-                    <li><a href="poetry.html" className="hover:text-green-500 transition-colors" aria-label="Go to Poetry">Poetry</a></li>
-                    <li><a href="#projects" className="hover:text-green-500 transition-colors" aria-label="Go to Projects">Projects</a></li>
-                    <li><a href="#about" className="hover:text-green-500 transition-colors" aria-label="Go to About">About</a></li>
-                    <li><a href="#contact" className="hover:text-green-500 transition-colors" aria-label="Go to Contact">Contact</a></li>
-                    <li><button onClick={toggleTheme} className="hover:text-green-500 transition-colors" aria-label="Toggle Theme">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</button></li>
+            <nav className="navbar">
+                <ul>
+                    <li><a href="/" className="nav-link">Home</a></li>
+                    <li><a href="/poetry.html" className="nav-link">Poetry</a></li>
+                    <li><a href="/velaphi.html" className="nav-link">Velaphi</a></li>
+                    <li><a href="#projects" className="nav-link">Projects</a></li>
+                    <li><a href="#about" className="nav-link">About</a></li>
+                    <li><a href="#contact" className="nav-link">Contact</a></li>
+                    <li><button onClick={toggleTheme} className="nav-button">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</button></li>
                 </ul>
             </nav>
-            <header id="home" className="text-center py-16 bg-gray-800/90 mx-4 my-8 rounded-lg shadow-lg max-w-4xl mx-auto">
-                <h1 className="text-5xl font-bold text-green-500 animate-pulse">P-iotic</h1>
-                <p className="text-xl mt-2">Final-Year BSc IT Student | Cybersecurity Enthusiast | Secure Software Developer</p>
+            <header id="home" className="section">
+                <h1 className="section-title animate-pulse">P-iotic</h1>
+                <p className="section-subtitle">Final-Year BSc IT Student | Cybersecurity Enthusiast | Secure Software Developer</p>
             </header>
-            <section id="about" className="max-w-4xl mx-auto my-8 p-6 bg-gray-800/90 rounded-lg shadow-lg">
-                <h2 className="text-3xl font-semibold text-green-500 mb-4 text-center">About Me</h2>
-                <p className="text-lg">
-                    I’m a final-year BSc IT student at North-West University, specializing in secure software development and cybersecurity. Proficient in <span className="text-green-500">Java, Python, C++, C#</span>, and <span className="text-green-500">data structures</span>, I build efficient, secure applications. My cybersecurity passion drives me to explore <span className="text-green-500">penetration testing</span> and <span className="text-green-500">cryptography</span>. Poetry is my creative outlet, reflecting my ability to blend technical precision with artistry. Check out my projects and <a href="poetry.html" className="text-green-500 hover:underline">poetry</a>!
+            <section id="about" className="section">
+                <h2 className="section-title">About Me</h2>
+                <p className="section-text">
+                    I’m a final-year BSc IT student at North-West University, specializing in secure software development and cybersecurity. Proficient in <span className="text-green-500">Java, Python, C++, C#</span>, and <span className="text-green-500">data structures</span>, I build efficient, secure applications. My cybersecurity passion drives me to explore <span className="text-green-500">penetration testing</span> and <span className="text-green-500">cryptography</span>. Poetry is my creative outlet, reflecting my ability to blend technical precision with artistry. Check out my projects and <a href="/poetry.html" className="text-green-500 hover:underline">poetry</a>!
                 </p>
             </section>
-            <section id="skills" className="max-w-4xl mx-auto my-8 p-6 bg-gray-800/90 rounded-lg shadow-lg">
-                <h2 className="text-3xl font-semibold text-green-500 mb-4 text-center">Skills & Expertise</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <section id="skills" className="section">
+                <h2 className="section-title">Skills & Expertise</h2>
+                <div className="grid">
                     {skills.map(skill => (
-                        <div key={skill.name} className="p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors border-l-4 border-green-500">
-                            <h3 className="text-lg font-medium">{skill.name}</h3>
-                            <p className="text-sm text-gray-400">{skill.category}</p>
-                            <p className="text-sm text-gray-300">{skill.description}</p>
+                        <div key={skill.name} className="card">
+                            <h3 className="card-title">{skill.name}</h3>
+                            <p className="card-subtitle">{skill.category}</p>
+                            <p className="card-text">{skill.description}</p>
                         </div>
                     ))}
                 </div>
             </section>
-            <section id="projects" className="max-w-4xl mx-auto my-8 p-6 bg-gray-800/90 rounded-lg shadow-lg">
-                <h2 className="text-3xl font-semibold text-green-500 mb-4 text-center">Projects</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <section id="projects" className="section">
+                <h2 className="section-title">Projects</h2>
+                <div className="grid">
                     {projects.map(project => (
-                        <div key={project.title} className="p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors border-l-4 border-green-500">
-                            <h3 className="text-xl font-medium">{project.title}</h3>
-                            <p className="text-sm text-gray-400">{project.description}</p>
-                            <p className="text-sm text-gray-300 mt-2">Technologies: {project.technologies.join(', ')}</p>
-                            <a href={project.github} target="_blank" className="text-green-500 hover:underline mt-2 inline-block">View on GitHub</a>
+                        <div key={project.title} className="card">
+                            <h3 className="card-title">{project.title}</h3>
+                            <p className="card-text">{project.description}</p>
+                            <p className="card-subtitle">Technologies: {project.technologies.join(', ')}</p>
+                            <a href={project.github} target="_blank" className="card-link">View on GitHub</a>
                         </div>
                     ))}
                 </div>
-                <p className="text-center mt-6">More projects in progress! Follow my <a href="https://github.com/P-iotic" target="_blank" className="text-green-500 hover:underline">GitHub</a>.</p>
+                <p className="section-text text-center">More projects in progress! Follow my <a href="https://github.com/P-iotic" target="_blank" className="text-green-500 hover:underline">GitHub</a>.</p>
             </section>
-            <section id="contact" className="max-w-4xl mx-auto my-8 p-6 bg-gray-800/90 rounded-lg shadow-lg">
-                <h2 className="text-3xl font-semibold text-green-500 mb-4 text-center">Get in Touch</h2>
-                <form action="https://formspree.io/f/your-formspree-id" method="POST" className="space-y-4">
+            <section id="contact" className="section">
+                <h2 className="section-title">Get in Touch</h2>
+                <form action="https://formspree.io/f/your-formspree-id" method="POST" className="form">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium">Name</label>
-                        <input type="text" id="name" name="name" required className="w-full p-2 bg-gray-700 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+                        <label htmlFor="name" className="form-label">Name</label>
+                        <input type="text" id="name" name="name" required className="form-input" />
                     </div>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium">Email</label>
-                        <input type="email" id="email" name="email" required className="w-full p-2 bg-gray-700 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input type="email" id="email" name="email" required className="form-input" />
                     </div>
                     <div>
-                        <label htmlFor="message" className="block text-sm font-medium">Message</label>
-                        <textarea id="message" name="message" rows="4" required className="w-full p-2 bg-gray-700 text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        <label htmlFor="message" className="form-label">Message</label>
+                        <textarea id="message" name="message" rows="4" required className="form-input"></textarea>
                     </div>
-                    <button type="submit" className="w-full p-2 bg-green-500 text-gray-900 rounded-lg hover:bg-green-400 transition-colors">Send Message</button>
+                    <button type="submit" className="form-button">Send Message</button>
                 </form>
             </section>
-            <footer className="text-center py-6 bg-gray-800">
+            <footer className="footer">
                 <p>© 2025 P-iotic. All rights reserved.</p>
             </footer>
         </div>
     );
 };
+
+try {
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+} catch (error) {
+    console.error('Error rendering React app:', error);
+    document.getElementById('root').innerHTML = '<p class="text-gray-100 text-center">Failed to load portfolio. Please try refreshing the page.</p>';
+}
 
 // Matrix Animation
 const canvas = document.getElementById('matrix');
@@ -153,8 +167,6 @@ if (canvas) {
     }
     setInterval(draw, 33);
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));
 
 window.onscroll = function () {
     const winScroll = document.documentElement.scrollTop || document.body.scrollTop;

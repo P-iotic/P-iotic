@@ -1,3 +1,7 @@
+---
+layout: default
+permalink: /poetry.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,44 +13,42 @@
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/poetry.html">Poetry</a></li>
-            <li><a href="/velaphi.html">Velaphi</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="mailto:youremail@example.com">Contact</a></li>
-            <li><button onclick="toggleTheme()">Toggle Theme</button></li>
+            <li><a href="/" className="nav-link">Home</a></li>
+            <li><a href="/poetry.html" className="nav-link">Poetry</a></li>
+            <li><a href="/velaphi.html" className="nav-link">Velaphi</a></li>
+            <li><a href="#projects" className="nav-link">Projects</a></li>
+            <li><a href="#about" className="nav-link">About</a></li>
+            <li><a href="#contact" className="nav-link">Contact</a></li>
+            <li><button onclick="toggleTheme()" className="nav-button">Toggle Theme</button></li>
         </ul>
     </nav>
-
-    <div class="poem-gallery">
+    <div className="section poem-gallery">
         <section>
-            <h2>Selected Poems</h2>
-            <article>
-                <h3>Caged (SVG)</h3>
-                <img src="poetry/caged.svg" alt="Caged Poem, a visual poem about confinement and freedom" class="poem-image" tabindex="0">
-                <p class="poem-description">A visual poem exploring themes of confinement and the yearning for freedom.</p>
-                <a href="poetry/caged.svg" download class="download-btn" aria-label="Download Caged Poem">Download</a>
+            <h2 className="section-title">Selected Poems</h2>
+            <article className="card">
+                <h3 className="card-title">Caged (SVG)</h3>
+                <img src="/poetry/caged.svg" alt="Caged Poem, a visual poem about confinement and freedom" className="poem-image" tabindex="0" />
+                <p className="card-text">A visual poem exploring themes of confinement and the yearning for freedom.</p>
+                <a href="/poetry/caged.svg" download className="card-link" aria-label="Download Caged Poem">Download</a>
             </article>
-            <article>
-                <h3>First Quarter (PNG)</h3>
-                <img src="poetry/1st quarter.png" alt="First Quarter Poem, a visual poem about new beginnings" class="poem-image" tabindex="0">
-                <p class="poem-description">Inspired by the lunar cycle, this poem reflects on new beginnings and growth.</p>
-                <a href="poetry/1st quarter.png" download class="download-btn" aria-label="Download First Quarter Poem">Download</a>
+            <article className="card">
+                <h3 className="card-title">First Quarter (PNG)</h3>
+                <img src="/poetry/1st quarter.png" alt="First Quarter Poem, a visual poem about new beginnings" className="poem-image" tabindex="0" />
+                <p className="card-text">Inspired by the lunar cycle, this poem reflects on new beginnings and growth.</p>
+                <a href="/poetry/1st quarter.png" download className="card-link" aria-label="Download First Quarter Poem">Download</a>
             </article>
-            <article>
-                <h3>Hear Our Cry (SVG)</h3>
-                <img src="poetry/Hear our Cry.svg" alt="Hear Our Cry Poem, a visual poem about collective struggle" class="poem-image" tabindex="0">
-                <p class="poem-description">A powerful visual poem addressing collective struggle and resilience.</p>
-                <a href="poetry/Hear our Cry.svg" download class="download-btn" aria-label="Download Hear Our Cry Poem">Download</a>
+            <article className="card">
+                <h3 className="card-title">Hear Our Cry (SVG)</h3>
+                <img src="/poetry/Hear our Cry.svg" alt="Hear Our Cry Poem, a visual poem about collective struggle" className="poem-image" tabindex="0" />
+                <p className="card-text">A powerful visual poem addressing collective struggle and resilience.</p>
+                <a href="/poetry/Hear our Cry.svg" download className="card-link" aria-label="Download Hear Our Cry Poem">Download</a>
             </article>
         </section>
     </div>
- 
-    <footer>
+    <footer className="footer">
         <p>© 2025 P-iotic. All rights reserved.</p>
     </footer>
-
+    <script src="/theme.js"></script>
     <script src="/poetry.js"></script>
 </body>
 </html>

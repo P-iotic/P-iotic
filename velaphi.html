@@ -1,206 +1,141 @@
+---
+layout: default
+permalink: /velaphi.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>P-iotic | Velaphi — Episode 1: Ubuya Njani?</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    #lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    #lightbox.active {
-      display: flex;
-    }
-    #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 4px;
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css">
 </head>
-<body class="bg-[#121212] font-georgia text-[#cccccc] leading-relaxed">
-  <nav class="p-4 bg-[#1a1a1a] fixed top-0 w-full z-10">
-    <ul class="flex justify-center space-x-6">
-      <li><a href="/index.html" class="font-verdana text-lg text-[#d4a017] hover:text-[#e6b800]">Home</a></li>
-      <li><a href="/poetry.html" class="font-verdana text-lg text-[#d4a017] hover:text-[#e6b800]">Poetry</a></li>
-      <li><a href="/velaphi.html" class="font-verdana text-lg text-[#d4a017] hover:text-[#e6b800]">Velaphi</a></li>
-      <li><a href="#projects" class="font-verdana text-lg text-[#d4a017] hover:text-[#e6b800]">Projects</a></li>
-      <li><a href="#about" class="font-verdana text-lg text-[#d4a017] hover:text-[#e6b800]">About</a></li>
-      <li><a href="mailto:youremail@example.com" class="font-verdana text-lg text-[#d4a017] hover:text-[#e6b800]">Contact</a></li>
-      <li>
-        <button
-          onclick="toggleTheme()"
-          class="px-4 py-1 bg-[#d4a017] text-white rounded hover:bg-[#e6b800] font-verdana text-lg"
-        >
-          Toggle Theme
-        </button>
-      </li>
+<body>
+  <nav className="navbar">
+    <ul>
+      <li><a href="/" className="nav-link">Home</a></li>
+      <li><a href="/poetry.html" className="nav-link">Poetry</a></li>
+      <li><a href="/velaphi.html" className="nav-link">Velaphi</a></li>
+      <li><a href="#projects" className="nav-link">Projects</a></li>
+      <li><a href="#about" className="nav-link">About</a></li>
+      <li><a href="#contact" className="nav-link">Contact</a></li>
+      <li><button onclick="toggleTheme()" className="nav-button">Toggle Theme</button></li>
     </ul>
   </nav>
-
-  <header class="text-center p-8 bg-[#1a1a1a] mt-16 max-w-2xl mx-auto rounded-lg">
-    <h1 class="text-4xl font-verdana text-[#d4a017]">Velaphi</h1>
-    <h2 class="text-2xl font-verdana text-[#d4a017] mt-2">
-      Episode 1: <em class="text-[#cccccc]">Ubuya Njani?</em>
+  <header className="section">
+    <h1 className="section-title">Velaphi</h1>
+    <h2 className="section-subtitle">
+      Episode 1: <em>Ubuya Njani?</em>
     </h2>
   </header>
-
-  <section class="mx-auto max-w-2xl p-8 bg-[#1a1a1a] rounded-lg my-4">
-    <div class="p-6 border border-[#d4a017] rounded-lg bg-[#121212] text-lg">
-      <p>
-        They whisper stories about him under faulty streetlights, where <span class="text-[#ff9933] font-bold">amagundane</span> move like <span class="text-[#ff9933] font-bold">ithunzi</span> in the dark, and even the dogs seem to bark with a question mark.
+  <section className="section">
+    <div className="card">
+      <p className="card-text">
+        They whisper stories about him under faulty streetlights, where <span className="text-green-500 font-bold">amagundane</span> move like <span className="text-green-500 font-bold">ithunzi</span> in the dark, and even the dogs seem to bark with a question mark.
       </p>
-      <p class="mt-4">
+      <p className="card-text">
         <strong>Velaphi.</strong>
       </p>
-      <p class="mt-4">
+      <p className="card-text">
         The name means "he who appears" — but no one agrees when or where. They say he walks the valley like it’s part of his skin. He’s scarred, dressed like nobody, moves like memory. No school paper, no badge, no title — but every corner knows him.
       </p>
-      <p class="mt-4">
-        Some say he was born in the soil of this place — <span class="text-[#ff9933] font-bold">mobu</span>, as the elders call it. Others say he is the soil. A guardian not chained to a gate, but to every broken tap, every street with running sewage, every pothole that swallows tires like mouths wide with hunger.
+      <p className="card-text">
+        Some say he was born in the soil of this place — <span className="text-green-500 font-bold">mobu</span>, as the elders call it. Others say he is the soil. A guardian not chained to a gate, but to every broken tap, every street with running sewage, every pothole that swallows tires like mouths wide with hunger.
       </p>
-      <p class="mt-4">
+      <p className="card-text">
         In this place, the municipality is a ghost. Promises come like the rain — heavy, loud, then gone. Water goes. Lights go. Hope thins. But never dies.
       </p>
-      <p class="mt-4">
+      <p className="card-text">
         He watches. He walks.
       </p>
-      <p class="mt-4">
+      <p className="card-text">
         You could swear you saw him just now — the boy at the stop sign selling cigarettes, the man with sweets outside the spaza, that uncle drinking with the crowd, the pastor shaking hands, the bully who never really hit back too hard.
       </p>
-      <p class="mt-4">
-        Grandparents say they knew him as a child. <span class="text-[#ff9933] font-bold">Batswadi</span> claim he’s their age mate. My peers? They say he’s still young. No one knows. No one is sure.
+      <p className="card-text">
+        Grandparents say they knew him as a child. <span className="text-green-500 font-bold">Batswadi</span> claim he’s their age mate. My peers? They say he’s still young. No one knows. No one is sure.
       </p>
-      <p class="mt-4">
-        Some say he’s felt before he’s seen.<br>
-        When <span class="text-[#ff9933] font-bold">izulu elimnyama</span> takes over the sky,<br>
-        when the wind swirls and <span class="text-[#ff9933] font-bold">umoya ovusa umhlaba</span> like <em class="text-[#cccccc]">abaphansi abanolaka</em>,<br>
-        they say: “He’s near.”<br>
+      <p className="card-text">
+        Some say he’s felt before he’s seen.<br />
+        When <span className="text-green-500 font-bold">izulu elimnyama</span> takes over the sky,<br />
+        when the wind swirls and <span className="text-green-500 font-bold">umoya ovusa umhlaba</span> like <em>abaphansi abanolaka</em>,<br />
+        they say: “He’s near.”<br />
         Not in voice — in presence.
       </p>
-      <p class="mt-4">
-        And when <span class="text-[#ff9933] font-bold">izinyembezi zaQueen</span> is cracked open,<br>
-        not for joy, not for numbness,<br>
-        but spilled slow into the dust,<br>
-        it’s a cry.<br>
-        A summon.<br>
-        A prayer in liquor form.<br>
-        Because sometimes, in the absence of power,<br>
-        they ask the soil to bring their <em class="text-[#cccccc]">champ ekhaya</em>.
+      <p className="card-text">
+        And when <span className="text-green-500 font-bold">izinyembezi zaQueen</span> is cracked open,<br />
+        not for joy, not for numbness,<br />
+        but spilled slow into the dust,<br />
+        it’s a cry.<br />
+        A summon.<br />
+        A prayer in liquor form.<br />
+        Because sometimes, in the absence of power,<br />
+        they ask the soil to bring their <em>champ ekhaya</em>.
       </p>
-      <p class="mt-4">
-        There was a time I was a child, waiting to catch just a glimpse. Never sure if I had.<br>
-        You see <span class="text-[#ff9933] font-bold">ithunzi</span> move — maybe it was <span class="text-[#ff9933] font-bold">igundane</span>, or maybe...
+      <p className="card-text">
+        There was a time I was a child, waiting to catch just a glimpse. Never sure if I had.<br />
+        You see <span className="text-green-500 font-bold">ithunzi</span> move — maybe it was <span className="text-green-500 font-bold">igundane</span>, or maybe...
       </p>
-      <p class="mt-4">
-        In this valley, people trade <span class="text-[#ff9933] font-bold">isiko</span> for Western flash. Gold teeth instead of gold hearts. There’s WiFi now, but no trust. Hair straight, tongues twisted. Old ways sink into concrete.
+      <p className="card-text">
+        In this valley, people trade <span className="text-green-500 font-bold">isiko</span> for Western flash. Gold teeth instead of gold hearts. There’s WiFi now, but no trust. Hair straight, tongues twisted. Old ways sink into concrete.
       </p>
-      <p class="mt-4">
-        And when Velaphi leaves for too long, <span class="text-[#ff9933] font-bold">amagundane</span> begin to play.<br>
-        They hesitate first. Whisper in corners. Throw threats like stones they can't carry.<br>
-        But when they think he’s truly gone, they try to run this valley.<br>
-        Until the wind shifts.<br>
-        Until the sky darkens.<br>
+      <p className="card-text">
+        And when Velaphi leaves for too long, <span className="text-green-500 font-bold">amagundane</span> begin to play.<br />
+        They hesitate first. Whisper in corners. Throw threats like stones they can't carry.<br />
+        But when they think he’s truly gone, they try to run this valley.<br />
+        Until the wind shifts.<br />
+        Until the sky darkens.<br />
         Until soil lifts.
       </p>
-      <p class="mt-4">
+      <p className="card-text">
         And then — silence.
       </p>
-      <p class="mt-4">
-        You never see him coming.<br>
-        He doesn’t roar.<br>
-        He doesn’t boast.<br>
+      <p className="card-text">
+        You never see him coming.<br />
+        He doesn’t roar.<br />
+        He doesn’t boast.<br />
         He just... is.
       </p>
-      <p class="mt-4">
+      <p className="card-text">
         And the valley remembers its rhythm.
       </p>
-      <p class="mt-4">
-        Because even the loudest mouths fall quiet when truth walks by —<br>
+      <p className="card-text">
+        Because even the loudest mouths fall quiet when truth walks by —<br />
         and he walks softly, like the wind before a storm.
       </p>
-      <p class="mt-4">
-        This isn’t his home.<br>
+      <p className="card-text">
+        This isn’t his home.<br />
         This is him.
       </p>
-      <p class="mt-4">
-        <strong>Velaphi.</strong>
-      </p>
-      <p class="mt-4">
-        Protector of broken pipes and bent souls.<br>
-        Warden of streets paved in rust and rhythm.<br>
+      <p className="card-text">
+        Protector of broken pipes and bent souls.<br />
+        Warden of streets paved in rust and rhythm.<br />
         Ghost of discipline.
       </p>
-      <p class="mt-4">
-        They speak his name only when necessary.<br>
-        They disrespect him loudly in crowds — a performance.<br>
-        But never alone.<br>
+      <p className="card-text">
+        They speak his name only when necessary.<br />
+        They disrespect him loudly in crowds — a performance.<br />
+        But never alone.<br />
         Never face to face.
       </p>
-      <p class="mt-4">
-        Because he’s the one who knows what changed while you blinked.<br>
-        He’s the one who walks the whole place before stepping into his own yard.<br>
+      <p className="card-text">
+        Because he’s the one who knows what changed while you blinked.<br />
+        He’s the one who walks the whole place before stepping into his own yard.<br />
         He’s the one the dogs bark for in patterns.
       </p>
-      <p class="mt-4">
-        And by the time you think of running,<br>
-        he’s already behind you.<br>
-        Or beside you.<br>
+      <p className="card-text">
+        And by the time you think of running,<br />
+        he’s already behind you.<br />
+        Or beside you.<br />
         Or maybe... he never left.
       </p>
-      <div class="mt-12 text-center text-sm text-gray-500">
+      <div className="card-text text-center text-gray-500">
         Velaphi — Kasi Folklore | Written in love for the soil
       </div>
     </div>
   </section>
-
-  <footer class="text-center p-6 bg-[#1a1a1a]">
-    <p class="text-sm text-gray-500">
-      © 2025 P-iotic. All rights reserved.
-    </p>
+  <footer className="footer">
+    <p>© 2025 P-iotic. All rights reserved.</p>
   </footer>
-
-  <script>
-    const toggleTheme = () => {
-      document.body.classList.toggle('light-mode');
-      const isLightMode = document.body.classList.contains('light-mode');
-      localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-      document.querySelectorAll('.bg-[#1a1a1a]').forEach(el => {
-        el.classList.toggle('bg-gray-200', isLightMode);
-        el.classList.toggle('bg-[#1a1a1a]', !isLightMode);
-      });
-      document.querySelectorAll('.bg-[#121212]').forEach(el => {
-        el.classList.toggle('bg-gray-100', isLightMode);
-        el.classList.toggle('bg-[#121212]', !isLightMode);
-      });
-      document.querySelectorAll('.text-[#cccccc]').forEach(el => {
-        el.classList.toggle('text-gray-800', isLightMode);
-        el.classList.toggle('text-[#cccccc]', !isLightMode);
-      });
-      document.querySelectorAll('.text-gray-500').forEach(el => {
-        el.classList.toggle('text-gray-600', isLightMode);
-        el.classList.toggle('text-gray-500', !isLightMode);
-      });
-    };
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-mode');
-      document.querySelectorAll('.bg-[#1a1a1a]').forEach(el => el.classList.add('bg-gray-200'));
-      document.querySelectorAll('.bg-[#121212]').forEach(el => el.classList.add('bg-gray-100'));
-      document.querySelectorAll('.text-[#cccccc]').forEach(el => el.classList.add('text-gray-800'));
-      document.querySelectorAll('.text-gray-500').forEach(el => el.classList.add('text-gray-600'));
-    }
-  </script>
+  <script src="/theme.js"></script>
 </body>
 </html>
