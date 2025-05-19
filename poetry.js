@@ -75,5 +75,4 @@ document.addEventListener('DOMContentLoaded', () => {
             image.alt = 'Failed to load poem image';
         });
     });
-    
 });

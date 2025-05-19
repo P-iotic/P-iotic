@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name - IT Student Portfolio</title>
+  <title>P-iotic | IT Student Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
-    /* Fallback style for dark theme */
     body {
       background-color: #121212;
       color: #ffffff;
       font-family: 'Georgia', serif;
+      margin: 0;
     }
     #particles-js {
       position: fixed;
@@ -33,14 +33,17 @@
     const { useState, useEffect } = React;
 
     // Navigation Component
-    function Navigation({ isDarkTheme }) {
+    function Navigation({ isDarkTheme, toggleTheme }) {
       const navLinks = [
-        { name: 'Home', href: 'index.html' },
-        { name: 'Poetry', href: 'poetry.html' },
-        { name: 'Contact', href: 'contact.html' },
+        { name: 'Home', href: '/index.html' },
+        { name: 'Poetry', href: '/poetry.html' },
+        { name: 'Velaphi', href: '/velaphi.html' },
+        { name: 'Projects', href: '#projects' },
+        { name: 'About', href: '#about' },
+        { name: 'Contact', href: 'mailto:youremail@example.com' },
       ];
       return (
-        <nav className={`p-4 ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-gray-200'}`}>
+        <nav className={`p-4 ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-gray-200'} fixed top-0 w-full z-10`}>
           <ul className="flex justify-center space-x-6">
             {navLinks.map((link, index) => (
               <li key={index}>
@@ -52,27 +55,29 @@
                 </a>
               </li>
             ))}
+            <li>
+              <button
+                onClick={toggleTheme}
+                className="px-4 py-1 bg-[#d4a017] text-white rounded hover:bg-[#e6b800] font-verdana text-lg"
+              >
+                Toggle Theme
+              </button>
+            </li>
           </ul>
         </nav>
       );
     }
 
     // Header Component
-    function Header({ isDarkTheme, toggleTheme }) {
+    function Header({ isDarkTheme }) {
       return (
-        <header className={`text-center p-8 ${isDarkTheme ? 'bg-[#1a1a1a]/80' : 'bg-gray-200/80'} backdrop-blur-sm`}>
+        <header className={`text-center p-8 mt-16 ${isDarkTheme ? 'bg-[#1a1a1a]/80' : 'bg-gray-200/80'} backdrop-blur-sm max-w-2xl mx-auto rounded-lg`}>
           <h1 className={`text-4xl font-bold font-verdana ${isDarkTheme ? 'text-white' : 'text-[#121212]'}`}>
-            Your Name
+            P-iotic
           </h1>
           <p className={`text-lg mt-2 ${isDarkTheme ? 'text-[#cccccc]' : 'text-gray-600'}`}>
             BSc IT Final Year Student | North-West University
           </p>
-          <button
-            onClick={toggleTheme}
-            className="mt-4 px-4 py-2 bg-[#d4a017] text-white rounded hover:bg-[#e6b800] font-verdana"
-          >
-            Toggle Theme
-          </button>
         </header>
       );
     }
@@ -106,7 +111,7 @@
             Explore my short story series, <em>Velaphi</em>, a piece of kasi folklore written for fun.
           </p>
           <a
-            href="velaphi.html"
+            href="/velaphi.html"
             className="block text-center text-[#d4a017] hover:underline font-verdana mt-4 text-xl font-bold"
           >
             Read Velaphi — Episode 1: Ubuya Njani?
@@ -120,7 +125,7 @@
       return (
         <footer className={`text-center p-6 ${isDarkTheme ? 'bg-[#1a1a1a]/80' : 'bg-gray-200/80'} backdrop-blur-sm`}>
           <p className={`text-sm ${isDarkTheme ? 'text-gray-500' : 'text-gray-600'}`}>
-            &copy; 2025 Your Name | Built with passion for code and creativity
+            © 2025 P-iotic. All rights reserved.
           </p>
         </footer>
       );
@@ -128,10 +133,12 @@
 
     // App Component
     function App() {
-      const [isDarkTheme, setIsDarkTheme] = useState(true);
+      const [isDarkTheme, setIsDarkTheme] = useState(() => {
+        const savedTheme = localStorage.getItem('theme');
+        return savedTheme === 'light' ? false : true;
+      });
 
       useEffect(() => {
-        // Initialize particles.js
         particlesJS('particles-js', {
           particles: {
             number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -149,15 +156,15 @@
           },
           retina_detect: true
         });
+        localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
         console.log('App rendered, isDarkTheme:', isDarkTheme);
         return () => {
-          // Cleanup particles.js (optional, prevents memory leaks)
           if (window.pJSDom && window.pJSDom.length) {
             window.pJSDom[0].pJS.fn.vendors.destroypJS();
             window.pJSDom = [];
           }
         };
-      }, []);
+      }, [isDarkTheme]);
 
       const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
@@ -165,8 +172,8 @@
 
       return (
         <div className={isDarkTheme ? 'bg-[#121212]' : 'bg-gray-100'}>
-          <Navigation isDarkTheme={isDarkTheme} />
-          <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+          <Navigation isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+          <Header isDarkTheme={isDarkTheme} />
           <Skills isDarkTheme={isDarkTheme} />
           <StoryLink isDarkTheme={isDarkTheme} />
           <Footer isDarkTheme={isDarkTheme} />
@@ -174,7 +181,6 @@
       );
     }
 
-    // Render App with error handling
     try {
       const root = ReactDOM.createRoot(document.getElementById('root'));
       root.render(<App />);
