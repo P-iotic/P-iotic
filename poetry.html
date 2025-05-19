@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P-iotic | Poetry</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+  <div id="scrollBar"></div>
+  <nav class="navbar">
+    <ul>
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/poetry.html" class="nav-link">Poetry</a></li>
+      <li><a href="/velaphi.html" class="nav-link">Velaphi</a></li>
+      <li><a href="/#projects" class="nav-link">Projects</a></li>
+      <li><a href="/#about" class="nav-link">About</a></li>
+      <li><a href="/#contact" class="nav-link">Contact</a></li>
+      <li><button onclick="toggleTheme()" class="nav-button">Toggle Theme</button></li>
+    </ul>
+  </nav>
+  <div class="section poem-gallery">
+    <section>
+      <h2 class="section-title">Selected Poems</h2>
+      <article class="card">
+        <h3 class="card-title">Caged (SVG)</h3>
+        <img src="/poetry/caged.svg" alt="Caged Poem, a visual poem about confinement and freedom" class="poem-image" tabindex="0">
+        <p class="card-text">A visual poem exploring themes of confinement and the yearning for freedom.</p>
+        <a href="/poetry/caged.svg" download class="card-link" aria-label="Download Caged Poem">Download</a>
+      </article>
+      <article class="card">
+        <h3 class="card-title">First Quarter (PNG)</h3>
+        <img src="/poetry/1st quarter.png" alt="First Quarter Poem, a visual poem about new beginnings" class="poem-image" tabindex="0">
+        <p class="card-text">Inspired by the lunar cycle, this poem reflects on new beginnings and growth.</p>
+        <a href="/poetry/1st quarter.png" download class="card-link" aria-label="Download First Quarter Poem">Download</a>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Hear Our Cry (SVG)</h3>
+        <img src="/poetry/Hear our Cry.svg" alt="Hear Our Cry Poem, a visual poem about collective struggle" class="poem-image" tabindex="0">
+        <p class="card-text">A powerful visual poem addressing collective struggle and resilience.</p>
+        <a href="/poetry/Hear our Cry.svg" download class="card-link" aria-label="Download Hear Our Cry Poem">Download</a>
+      </article>
+    </section>
+  </div>
+  <footer class="footer">
+    <p>© 2025 P-iotic. All rights reserved.</p>
+  </footer>
+  <script src="/theme.js"></script>
+  <script src="/poetry.js"></script>
+</body>
+</html>

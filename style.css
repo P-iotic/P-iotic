@@ -21,7 +21,7 @@ body.light-mode {
   color: #333333;
 }
 
-#particles-js, #matrix {
+#matrix {
   position: fixed;
   top: 0;
   left: 0;
