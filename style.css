@@ -8,13 +8,26 @@ body {
   padding: 20px;
 }
 
-/* Navbar styles */
+/* Scroll Bar (Placeholder, non-functional without JS) */
+#scrollBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background-color: #f1c40f;
+  width: 0;
+}
+
+/* Navbar */
 .navbar {
   background-color: #1e1e1e;
   padding: 10px;
   margin-bottom: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .navbar ul {
@@ -30,13 +43,63 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
+  padding: 10px;
 }
 
 .navbar a:hover {
   color: #e67e22;
 }
 
-/* Poem gallery */
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #f1c40f;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+/* Sections */
+section {
+  margin-bottom: 40px;
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+h2 {
+  color: #f1c40f;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+section p, section ul {
+  font-size: 1.1em;
+  color: #ddd;
+}
+
+section ul {
+  list-style: none;
+  padding: 0;
+}
+
+section ul li {
+  background-color: #252525;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Poem Gallery */
 .poem-gallery {
   text-align: center;
   background-color: #1c1c1c;
@@ -44,10 +107,34 @@ body {
   border-radius: 10px;
 }
 
+.poem-gallery h2 {
+  color: #f1c40f;
+}
+
+.poem-gallery article {
+  margin: 20px 0;
+}
+
+.poem-gallery h3 {
+  color: #e67e22;
+  font-size: 1.4em;
+  margin: 10px 0;
+}
+
 .poem-gallery img {
   width: 100%;
   max-width: 600px;
-  margin: 20px 0;
+  margin: 10px 0;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Links */
+a {
+  color: #f1c40f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e67e22;
 }
