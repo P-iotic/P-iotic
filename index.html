@@ -8,11 +8,19 @@
   <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone"></script>
+  <style>
+    /* Fallback style to ensure dark theme if React fails to load */
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Georgia', serif;
+    }
+  </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    const { useState } = React;
+    const { useState, useEffect } = React;
 
     // Header Component
     function Header({ isDarkTheme, toggleTheme }) {
@@ -76,6 +84,10 @@
     function App() {
       const [isDarkTheme, setIsDarkTheme] = useState(true);
 
+      useEffect(() => {
+        console.log('App rendered, isDarkTheme:', isDarkTheme);
+      }, [isDarkTheme]);
+
       const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
       };
@@ -89,9 +101,14 @@
       );
     }
 
-    // Render App
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+    // Render App with error handling
+    try {
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    } catch (error) {
+      console.error('Error rendering React app:', error);
+      document.getElementById('root').innerHTML = '<p style="color: #ffffff; text-align: center;">Failed to load portfolio. Please try refreshing the page.</p>';
+    }
   </script>
 </body>
 </html>
