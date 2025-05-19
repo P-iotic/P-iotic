@@ -11,14 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = document.createElement('img');
             img.src = image.src;
             img.alt = image.alt;
-            img.dataset.index = index; // Store index for navigation
+            img.dataset.index = index;
             while (lightbox.firstChild) {
                 lightbox.removeChild(lightbox.firstChild);
             }
             lightbox.appendChild(img);
         });
 
-        // Accessibility: Allow keyboard activation
         image.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -27,14 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close lightbox on click
     lightbox.addEventListener('click', (e) => {
         if (e.target !== lightbox.querySelector('img')) {
             lightbox.classList.remove('active');
         }
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (lightbox.classList.contains('active')) {
             const currentImg = lightbox.querySelector('img');
@@ -69,14 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('light-mode');
     }
 
-    // Expose toggleTheme to global scope for button
     window.toggleTheme = toggleTheme;
 
     // Error handling for missing images
     images.forEach(image => {
         image.addEventListener('error', () => {
-            image.src = 'poetry/fallback.png'; // Fallback image
+            image.src = 'poetry/fallback.png';
             image.alt = 'Failed to load poem image';
         });
     });
+    
 });

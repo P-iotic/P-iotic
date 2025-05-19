@@ -1,54 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-iotic | IT Student</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - IT Student Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone"></script>
 </head>
 <body>
-    <div id="scrollBar"></div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html" aria-label="Go to Home">Home</a></li>
-            <li><a href="poetry.html" aria-label="Go to Poetry">Poetry</a></li>
-            <li><a href="#projects" aria-label="Go to Projects">Projects</a></li>
-            <li><a href="#about" aria-label="Go to About">About</a></li>
-            <li><a href="mailto:youractualemail@example.com" aria-label="Contact via Email">Contact</a></li>
-            <li><button onclick="toggleTheme()" aria-label="Toggle Light/Dark Theme">Toggle Theme</button></li>
-        </ul>
-    </nav>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
 
-    <header>
-        <h1>P-iotic</h1>
-        <p>IT Student | Cybersecurity Enthusiast | Aspiring Developer</p>
-    </header>
+    // Header Component
+    function Header({ isDarkTheme, toggleTheme }) {
+      return (
+        <header className={`text-center p-8 ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-gray-200'}`}>
+          <h1 className={`text-4xl font-bold font-verdana ${isDarkTheme ? 'text-white' : 'text-[#121212]'}`}>
+            Your Name
+          </h1>
+          <p className={`text-lg mt-2 ${isDarkTheme ? 'text-[#cccccc]' : 'text-gray-600'}`}>
+            BSc IT Final Year Student | North-West University
+          </p>
+          <button
+            onClick={toggleTheme}
+            className="mt-4 px-4 py-2 bg-[#d4a017] text-white rounded hover:bg-[#e6b800] font-verdana"
+          >
+            Toggle Theme
+          </button>
+        </header>
+      );
+    }
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I'm an IT student passionate about programming, web development, poetry, and cybersecurity. I enjoy learning about new technologies and exploring how to secure them.</p>
-    </section>
+    // Skills Component
+    function Skills({ isDarkTheme }) {
+      const skills = ['Java', 'Python', 'C++', 'C#', 'Cybersecurity'];
+      return (
+        <section className={`mx-auto max-w-2xl p-8 rounded-lg ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-white'} my-4`}>
+          <h2 className="text-2xl font-verdana text-[#d4a017] text-center mb-4">Skills</h2>
+          <ul className="flex flex-wrap justify-center gap-4">
+            {skills.map((skill, index) => (
+              <li
+                key={index}
+                className={`px-4 py-2 border border-[#d4a017] rounded ${isDarkTheme ? 'bg-[#121212] text-[#cccccc]' : 'bg-gray-100 text-gray-800'}`}
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    }
 
-    <section id="skills">
-        <h2>Skills & Interests</h2>
-        <ul>
-            <li>Java</li>
-            <li>HTML & CSS</li>
-            <li>JavaScript</li>
-            <li>Cybersecurity Enthusiast</li>
-            <li>Poetry & Creative Writing</li>
-        </ul>
-    </section>
+    // Story Link Component
+    function StoryLink({ isDarkTheme }) {
+      return (
+        <section className={`mx-auto max-w-2xl p-8 rounded-lg ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-white'} my-4`}>
+          <h2 className="text-2xl font-verdana text-[#d4a017] text-center mb-4">Creative Writing</h2>
+          <p className={`text-lg ${isDarkTheme ? 'text-[#cccccc]' : 'text-gray-800'} text-center`}>
+            Explore my short story series, <em>Velaphi</em>, a piece of kasi folklore written for fun.
+          </p>
+          <a
+            href="velaphi.html"
+            className="block text-center text-[#d4a017] hover:underline font-verdana mt-4"
+          >
+            Read Velaphi — Episode 1: Ubuya Njani?
+          </a>
+        </section>
+      );
+    }
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Coming soon! Follow my <a href="https://github.com/P-iotic" target="_blank" aria-label="Visit my GitHub">GitHub</a>.</p>
-    </section>
+    // App Component
+    function App() {
+      const [isDarkTheme, setIsDarkTheme] = useState(true);
 
-    <footer>
-        <p>© 2025 P-iotic. All rights reserved.</p>
-    </footer>
+      const toggleTheme = () => {
+        setIsDarkTheme(!isDarkTheme);
+      };
 
-    <script src="script.js"></script>
+      return (
+        <div className={isDarkTheme ? 'bg-[#121212]' : 'bg-gray-100'}>
+          <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+          <Skills isDarkTheme={isDarkTheme} />
+          <StoryLink isDarkTheme={isDarkTheme} />
+        </div>
+      );
+    }
+
+    // Render App
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
