@@ -8,24 +8,59 @@
   <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
-    /* Fallback style to ensure dark theme if React fails to load */
+    /* Fallback style for dark theme */
     body {
       background-color: #121212;
       color: #ffffff;
       font-family: 'Georgia', serif;
     }
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
   <div id="root"></div>
   <script type="text/babel">
     const { useState, useEffect } = React;
 
+    // Navigation Component
+    function Navigation({ isDarkTheme }) {
+      const navLinks = [
+        { name: 'Home', href: 'index.html' },
+        { name: 'Poetry', href: 'poetry.html' },
+        { name: 'Contact', href: 'contact.html' },
+      ];
+      return (
+        <nav className={`p-4 ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-gray-200'}`}>
+          <ul className="flex justify-center space-x-6">
+            {navLinks.map((link, index) => (
+              <li key={index}>
+                <a
+                  href={link.href}
+                  className={`font-verdana text-lg ${isDarkTheme ? 'text-[#d4a017] hover:text-[#e6b800]' : 'text-[#121212] hover:text-[#d4a017]'}`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      );
+    }
+
     // Header Component
     function Header({ isDarkTheme, toggleTheme }) {
       return (
-        <header className={`text-center p-8 ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-gray-200'}`}>
+        <header className={`text-center p-8 ${isDarkTheme ? 'bg-[#1a1a1a]/80' : 'bg-gray-200/80'} backdrop-blur-sm`}>
           <h1 className={`text-4xl font-bold font-verdana ${isDarkTheme ? 'text-white' : 'text-[#121212]'}`}>
             Your Name
           </h1>
@@ -46,7 +81,7 @@
     function Skills({ isDarkTheme }) {
       const skills = ['Java', 'Python', 'C++', 'C#', 'Cybersecurity'];
       return (
-        <section className={`mx-auto max-w-2xl p-8 rounded-lg ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-white'} my-4`}>
+        <section className={`mx-auto max-w-2xl p-8 rounded-lg ${isDarkTheme ? 'bg-[#1a1a1a]/80' : 'bg-white/80'} my-4 backdrop-blur-sm`}>
           <h2 className="text-2xl font-verdana text-[#d4a017] text-center mb-4">Skills</h2>
           <ul className="flex flex-wrap justify-center gap-4">
             {skills.map((skill, index) => (
@@ -65,18 +100,29 @@
     // Story Link Component
     function StoryLink({ isDarkTheme }) {
       return (
-        <section className={`mx-auto max-w-2xl p-8 rounded-lg ${isDarkTheme ? 'bg-[#1a1a1a]' : 'bg-white'} my-4`}>
+        <section className={`mx-auto max-w-2xl p-8 rounded-lg ${isDarkTheme ? 'bg-[#1a1a1a]/80' : 'bg-white/80'} my-4 backdrop-blur-sm`}>
           <h2 className="text-2xl font-verdana text-[#d4a017] text-center mb-4">Creative Writing</h2>
           <p className={`text-lg ${isDarkTheme ? 'text-[#cccccc]' : 'text-gray-800'} text-center`}>
             Explore my short story series, <em>Velaphi</em>, a piece of kasi folklore written for fun.
           </p>
           <a
             href="velaphi.html"
-            className="block text-center text-[#d4a017] hover:underline font-verdana mt-4"
+            className="block text-center text-[#d4a017] hover:underline font-verdana mt-4 text-xl font-bold"
           >
             Read Velaphi — Episode 1: Ubuya Njani?
           </a>
         </section>
+      );
+    }
+
+    // Footer Component
+    function Footer({ isDarkTheme }) {
+      return (
+        <footer className={`text-center p-6 ${isDarkTheme ? 'bg-[#1a1a1a]/80' : 'bg-gray-200/80'} backdrop-blur-sm`}>
+          <p className={`text-sm ${isDarkTheme ? 'text-gray-500' : 'text-gray-600'}`}>
+            &copy; 2025 Your Name | Built with passion for code and creativity
+          </p>
+        </footer>
       );
     }
 
@@ -85,8 +131,33 @@
       const [isDarkTheme, setIsDarkTheme] = useState(true);
 
       useEffect(() => {
+        // Initialize particles.js
+        particlesJS('particles-js', {
+          particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: ['#d4a017', '#cccccc'] },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5, random: true },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: '#d4a017', opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2, direction: 'none', random: true, out_mode: 'out' }
+          },
+          interactivity: {
+            detect_on: 'canvas',
+            events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
+            modes: { grab: { distance: 200, line_linked: { opacity: 0.7 } }, push: { particles_nb: 4 } }
+          },
+          retina_detect: true
+        });
         console.log('App rendered, isDarkTheme:', isDarkTheme);
-      }, [isDarkTheme]);
+        return () => {
+          // Cleanup particles.js (optional, prevents memory leaks)
+          if (window.pJSDom && window.pJSDom.length) {
+            window.pJSDom[0].pJS.fn.vendors.destroypJS();
+            window.pJSDom = [];
+          }
+        };
+      }, []);
 
       const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
@@ -94,9 +165,11 @@
 
       return (
         <div className={isDarkTheme ? 'bg-[#121212]' : 'bg-gray-100'}>
+          <Navigation isDarkTheme={isDarkTheme} />
           <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
           <Skills isDarkTheme={isDarkTheme} />
           <StoryLink isDarkTheme={isDarkTheme} />
+          <Footer isDarkTheme={isDarkTheme} />
         </div>
       );
     }
